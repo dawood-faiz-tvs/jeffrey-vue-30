@@ -1,17 +1,17 @@
 import Task from "./Task.js";
+import TaskTags from "./TaskTags.js";
 
 export default {
     components: {
-        Task
+        Task,
+        TaskTags
     },
     template: `
         <section v-if="tasks.length" class="max-w-lg rounded overflow-hidden shadow-lg">
             <div class="px-6 py-4">
                 <h2 class="font-bold mb-2">{{ title }} <span>({{ filteredTasks.length }})</span></h2>
 
-                <div class="flex gap-2">
-                    <button v-for="tag in tags" class="border rounded px-1 py-px text-xs" :class="{'border-gray-500 bg-blue-700 text-white': tag === currentTag}" @click="currentTag = tag">{{ tag }}</button>
-                </div>
+                <task-tags :initial-tags="tasks.map((singleTask) => singleTask.tag)"></task-tags>
 
                 <ul class="divide-y mt-6">
                     <task v-for="task in filteredTasks" :key="task.id" :task="task"></task>
