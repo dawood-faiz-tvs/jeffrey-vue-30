@@ -1,20 +1,17 @@
 import TaskList from "./TaskList.js";
+import TaskCreate from "./TaskCreate.js";
 
 export default {
     components: {
-        TaskList
+        TaskList,
+        TaskCreate
     },
     template: `
         <section class="space-y-6">
             <task-list :tasks="filters.inProgress" title="In Progress Tasks"></task-list>
             <task-list :tasks="filters.completed" title="Completed Tasks"></task-list>
 
-            <form @submit.prevent="addTask">
-                <div class="border border-gray-600">
-                    <input placeholder="Add Task..." class="p-2" v-model="newTask">
-                    <button type="submit" class="p-2 border-l bg-gray-400">Add</button>
-                </div>
-            </form>
+            <task-create @addTask="addTask"></task-create>
         </section>
     `,
     data(){
@@ -58,14 +55,12 @@ export default {
         }
     },
     methods: {
-        addTask(){
+        addTask(taskName){
             this.tasks.push({
                 id: this.tasks.length + 1,
-                title: this.newTask,
+                title: taskName,
                 isDone: false
             });
-
-            this.newTask = '';
         }
     }
     
