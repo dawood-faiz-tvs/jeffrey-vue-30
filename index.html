@@ -7,20 +7,44 @@
     <script src="https://www.unpkg.com/vue@3"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<style>
+    body {
+        color: #fff;
+    }
+
+    @keyframes spinner {
+        to {transform: rotate(360deg);}
+    }
+ 
+    .loader:before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        top: 3.5%;
+        left: 6%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        border-top-color: #000;
+        animation: spinner .6s linear infinite;
+    }
+
+    .loader {
+        color: transparent;
+    }
+</style>
 <body>
     <div id="app">
-        <app-button>CLICK ME</app-button>
+        <app-button processing="true">CLICK ME</app-button>
     </div>
+
     <script type="module">
-        import AppButton from './js/components/AppButton.js';
+        import App from './js/components/App.js';
 
-        let app = {
-            components: {
-                'app-button': AppButton
-            }
-        };
-
-        Vue.createApp(app).mount('#app');
+        Vue.createApp(App).mount('#app');
     </script>
 </body>
 </html>
