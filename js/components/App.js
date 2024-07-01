@@ -1,7 +1,10 @@
-import AppButton from "./AppButton.js";
+import Tasks from './Tasks.js';
 
 export default {
     components: {
-        'app-button': AppButton
-    }
+        Tasks
+    },
+    template: `
+        <tasks></tasks>
+    ` 
 };
