@@ -21,26 +21,31 @@ export default {
                     id: 1,
                     title: 'Learn Vue',
                     isDone: false,
+                    tag: 'JavaScript'
                 },
                 {
                     id: 2,
                     title: 'Learn PHP',
-                    isDone: true,
+                    isDone: false,
+                    tag: 'PHP'
                 },
                 {
                     id: 3,
                     title: 'Learn JavaScript',
                     isDone: false,
+                    tag: 'JavaScript'
                 },
                 {
                     id: 4,
                     title: 'Learn Python',
                     isDone: false,
+                    tag: 'Python'
                 },
                 {
                     id: 5,
                     title: 'Learn Node.js',
                     isDone: false,
+                    tag: 'NPM'
                 },
             ],
             newTask: ''
