@@ -11,7 +11,7 @@ export default {
             <div class="px-6 py-4">
                 <h2 class="font-bold mb-2">{{ title }} <span>({{ filteredTasks.length }})</span></h2>
 
-                <task-tags :initial-tags="tasks.map((singleTask) => singleTask.tag)"></task-tags>
+                <task-tags :current-tag="currentTag" :initial-tags="tasks.map((singleTask) => singleTask.tag)" @tagChanged="currentTag = $event"></task-tags>
 
                 <ul class="divide-y mt-6">
                     <task v-for="task in filteredTasks" :key="task.id" :task="task"></task>

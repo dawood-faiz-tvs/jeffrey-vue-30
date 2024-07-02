@@ -1,20 +1,16 @@
 export default {
     template: `
         <div class="flex gap-2">
-            <button v-for="tag in tags" class="border rounded px-1 py-px text-xs" :class="{'border-gray-500 bg-blue-700 text-white': tag === currentTag}" @click="currentTag = tag">{{ tag }}</button>
+            <button v-for="tag in tags" class="border rounded px-1 py-px text-xs" :class="{'border-gray-500 bg-blue-700 text-white': tag === currentTag}" @click="$emit('tagChanged', tag)">{{ tag }}</button>
         </div>
     `,
     props: {
-        initialTags: Array
+        initialTags: Array,
+        currentTag: String
     },
     computed: {
         tags(){
             return ['All', ...new Set(this.initialTags)];
         }
     },
-    data(){
-        return {
-            currentTag: 'All'
-        };
-    }
 };
