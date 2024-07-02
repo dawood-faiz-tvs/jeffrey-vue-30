@@ -16,40 +16,15 @@ export default {
     `,
     data(){
         return {
-            tasks: [
-                {
-                    id: 1,
-                    title: 'Learn Vue',
-                    isDone: false,
-                    tag: 'JavaScript'
-                },
-                {
-                    id: 2,
-                    title: 'Learn PHP',
-                    isDone: false,
-                    tag: 'PHP'
-                },
-                {
-                    id: 3,
-                    title: 'Learn JavaScript',
-                    isDone: false,
-                    tag: 'JavaScript'
-                },
-                {
-                    id: 4,
-                    title: 'Learn Python',
-                    isDone: false,
-                    tag: 'Python'
-                },
-                {
-                    id: 5,
-                    title: 'Learn Node.js',
-                    isDone: false,
-                    tag: 'NPM'
-                },
-            ],
-            newTask: ''
+            tasks: []
         };
+    },
+    created(){
+        fetch("http://localhost:3001/tasks")
+            .then((response) => response.json())
+            .then((tasks) => {
+                this.tasks = tasks;
+            });
     },
     computed: {
         filters(){
