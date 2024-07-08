@@ -11,7 +11,7 @@ export default {
             <task-list :tasks="filters.inProgress" title="In Progress Tasks">
                 <task-create @addTask="addTask"></task-create>
             </task-list>
-            <task-list v-if="showCompleted" :tasks="filters.completed" can-toggle="true" @toggle="showCompleted = !showCompleted" title="Completed Tasks"></task-list>
+            <task-list v-if="showCompleted" :tasks="filters.completed" :can-toggle="true" @toggle="showCompleted = !showCompleted" title="Completed Tasks"></task-list>
         </section>
     `,
     data(){
