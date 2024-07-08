@@ -7,16 +7,17 @@ export default {
         TaskCreate
     },
     template: `
-        <section class="space-y-6">
-            <task-list :tasks="filters.inProgress" title="In Progress Tasks"></task-list>
-            <task-list :tasks="filters.completed" title="Completed Tasks"></task-list>
-
-            <task-create @addTask="addTask"></task-create>
+        <section class="flex gap-8">
+            <task-list :tasks="filters.inProgress" title="In Progress Tasks">
+                <task-create @addTask="addTask"></task-create>
+            </task-list>
+            <task-list v-if="showCompleted" :tasks="filters.completed" can-toggle="true" @toggle="showCompleted = !showCompleted" title="Completed Tasks"></task-list>
         </section>
     `,
     data(){
         return {
-            tasks: []
+            tasks: [],
+            showCompleted: true
         };
     },
     created(){
