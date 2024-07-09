@@ -1,13 +1,24 @@
 <script>
-import flash from '@/mixins/flash.js'
+import { useFlash } from '@/composables/useFlash.js'
 
 export default {
-  mixins: [flash]
+  setup() {
+    let { flashMessage } = useFlash()
+
+    return { flashMessage }
+  }
 }
 </script>
 
 <template>
   <div>
-    <button type="button" @click="flashMessage('You did it in about view!')">CLICK ME</button>
+    <button
+      type="button"
+      @click="
+        flashMessage('Success!', 'You did it in about view using composables & setup method!')
+      "
+    >
+      CLICK ME
+    </button>
   </div>
 </template>

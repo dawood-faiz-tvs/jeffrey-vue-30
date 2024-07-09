@@ -2,11 +2,11 @@ import Swal from 'sweetalert2'
 
 export default {
   methods: {
-    flashMessage(message) {
+    flashMessage(title, message, icon = 'success') {
       return Swal.fire({
-        title: 'Congratulations!',
+        title: title,
         text: message,
-        icon: 'success'
+        icon: icon
       })
     }
   }

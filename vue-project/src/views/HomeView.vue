@@ -8,6 +8,8 @@ export default {
 
 <template>
   <main>
-    <button type="button" @click="flashMessage('You did it in home view!')">CLICK ME</button>
+    <button type="button" @click="flashMessage('Error!', 'You did it in home view using mixins!', 'error')">
+      CLICK ME
+    </button>
   </main>
 </template>
