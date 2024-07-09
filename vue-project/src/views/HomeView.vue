@@ -1,18 +1,13 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-import { ref } from 'vue'
+<script>
+import flash from '@/mixins/flash.js'
 
-let message = ref('HELLO THERE...')
-
-let changeValue = () => {
-  message.value = 'HELLO WORLD!'
+export default {
+  mixins: [flash]
 }
 </script>
 
 <template>
   <main>
-    {{ message }}
-    <button type="button" @click="changeValue">CLICK ME</button>
-    <TheWelcome />
+    <button type="button" @click="flashMessage('You did it in home view!')">CLICK ME</button>
   </main>
 </template>

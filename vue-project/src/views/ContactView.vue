@@ -1,15 +1,13 @@
+<script>
+import flash from '@/mixins/flash.js'
+
+export default {
+  mixins: [flash]
+}
+</script>
+
 <template>
-  <div class="contact">
-    <h1>This is a contact page</h1>
+  <div>
+    <button type="button" @click="flashMessage('You did it in contact view!')">CLICK ME</button>
   </div>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .contact {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
