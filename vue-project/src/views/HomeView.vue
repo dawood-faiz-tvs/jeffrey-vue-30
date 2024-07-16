@@ -1,15 +1,16 @@
-<script>
-import flash from '@/mixins/flash.js'
+<script setup>
+import { useLocalStorage } from '@/composables/useLocalStorage.js'
 
-export default {
-  mixins: [flash]
-}
+let username = useLocalStorage('username', 'John Doe')
+let age = useLocalStorage('age', 63)
 </script>
 
 <template>
   <main>
-    <button type="button" @click="flashMessage('Error!', 'You did it in home view using mixins!', 'error')">
-      CLICK ME
-    </button>
+    <p>
+      What is your name?
+      <input type="text" v-model="username" />
+    </p>
+    <p>What is your age? <input type="text" v-model="age" /></p>
   </main>
 </template>
